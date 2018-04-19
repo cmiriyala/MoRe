@@ -1,4 +1,4 @@
-﻿@model MoRe.ViewModels.RandomMovieViewModel
+﻿@model MoRe.ViewModels.CustomerFormViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -13,15 +13,20 @@
         <th>
             Customers
         </th>
-        <th></th>
+        <th>
+            Membership Type
+        </th>
     </tr>
 
     @foreach (var customer in Model.Customers)
     {
         <tr>
             <td>
-                @Html.ActionLink(customer.Name, "View", "Customers", new { id = customer.Id, name = customer.Name }, null)
+                @Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)
 
+            </td>
+            <td>
+                @customer.MembershipType.Name
             </td>
         </tr>
 

@@ -5,4 +5,16 @@
 }
 
 <h2>@ViewBag.namecustomer</h2>
+<ul>
+    <li>Membership Type: @ViewBag.customerMembershitype </li>
+    @{ if (ViewBag.birthdate.ToString() == "nobirthdate")
+        {
+            
+        }
+        else
+        { 
+        <li>Birthdate: @ViewBag.birthdate.ToShortDateString()</li>
+        }
+    }
+</ul>
 

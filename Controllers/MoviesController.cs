@@ -5,36 +5,45 @@ using System.Web;
 using System.Web.Mvc;
 using MoRe.Models;
 using MoRe.ViewModels;
+using System.Data.Entity;
+
 
 namespace MoRe.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies/Random
-       /* public ActionResult Random()
+        private ApplicationDbContext _context;
+
+        public MoviesController()
         {
-            var movie = new Movie() { Name = "Shrek!" };
-            var customers = new List<Customer>
-            {
-                new Customer{Name = "Chethan"},
-                new Customer{Name="Miriyala"}
-            };
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-            return View(viewModel);
+            _context = new ApplicationDbContext();
         }
-        */
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+        // GET: Movies/Random
+        /* public ActionResult Random()
+         {
+             var movie = new Movie() { Name = "Shrek!" };
+             var customers = new List<Customer>
+             {
+                 new Customer{Name = "Chethan"},
+                 new Customer{Name="Miriyala"}
+             };
+             var viewModel = new RandomMovieViewModel
+             {
+                 Movie = movie,
+                 Customers = customers
+             };
+             return View(viewModel);
+         }
+         */
         public ActionResult Index()
         {
-            var movies = new List<Movie>
-            {
-                new Movie{Id=1,Name = "Shrek!"},
-                new Movie{Id=2,Name="Wall E!"}
-            };
-            var viewModel = new RandomMovieViewModel
+            var movies = _context.Movies.Include(m => m.Genres).ToList();
+                
+            var viewModel = new CustomerFormViewModel
             {
                 Movies = movies
                
@@ -42,10 +51,43 @@ namespace MoRe.Controllers
 
             return View(viewModel);
         }
-        public ActionResult View(int id, string name)
+        public ActionResult View(int id)
         {
-            ViewBag.namemovie = name;
+            var moviedata = _context.Movies.Include(m => m.Genres).Single(m => m.Id == id);
+            if (moviedata == null)
+                return HttpNotFound();
+            ViewBag.namemovie = moviedata.Name;
+            ViewBag.movieGenre = moviedata.Genres.Name;
+            ViewBag.movieReleaseDate = moviedata.ReleaseDate;
+            ViewBag.movieAddedDate = moviedata.AddedDate;
+            ViewBag.movieinstock = moviedata.NumberinStock;
+
+
             return View();
+        }
+        public ActionResult NewMovie()
+        {
+            var generlist = _context.Genres.ToList();
+            var ViewModel = new CustomerFormViewModel
+            {
+                Genres = generlist
+            };
+                
+            return View(ViewModel);
+        }
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+
+            }
+            else
+            {
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index","Movies");
         }
         public ActionResult Edit(int id)
         {

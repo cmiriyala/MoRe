@@ -1,4 +1,4 @@
-﻿@model MoRe.ViewModels.RandomMovieViewModel
+﻿    @model MoRe.ViewModels.CustomerFormViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -7,11 +7,16 @@
 
 <h2>Movies</h2>
 
+<h2>@Html.ActionLink("New Movie","NewMovie" , "Movies", new { @class = "btn btn-primary" })</h2>
+
 
 <table class="table">
     <tr>
         <th>
             Movies
+        </th>
+        <th>
+            Genre
         </th>
         <th></th>
     </tr>
@@ -19,7 +24,10 @@
     @foreach (var movie in Model.Movies)
     {
         <tr>
-            <td> @Html.ActionLink(movie.Name, "View", "Movies", new { id = movie.Id, name = movie.Name }, null)</td> 
+            <td> @Html.ActionLink(movie.Name, "View", "Movies", new { id = movie.Id}, null)</td> 
+            <td>
+                @movie.Genres.Name
+            </td>
         </tr>
 
             }

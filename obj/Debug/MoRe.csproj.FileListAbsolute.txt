@@ -118,3 +118,16 @@ c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.csproj.CoreCompileInputs.cache
 c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.csproj.CopyComplete
 c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.dll
 c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.pdb
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.InitialCreate.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.csproj.GenerateResource.cache
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.InitialModel.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.AddIsSubscribedTpCustomer.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.AddMembershipType.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.PopulateMembershipTypes.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.ApplyAnnotationstocustomer.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.AddNameMembershipType.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.updateMembershiptypeName.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.AddBirthdateCustomer.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.AddMovietableandreferanceGenerTable.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.AddGenestodatabase.resources
+c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.Changecolumns.resources
