@@ -14,6 +14,7 @@ namespace MoRe.ViewModels
         public Customer Customer { get; set; }
         public IEnumerable<Genres> Genres { get; set; }
         public Movie Movie { get; set; }
+        
 
     }   
 }

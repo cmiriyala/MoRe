@@ -245,6 +245,10 @@
     <Compile Include="Migrations\201804190702266_Changecolumns.Designer.cs">
       <DependentUpon>201804190702266_Changecolumns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804211734148_changesinmodels.cs" />
+    <Compile Include="Migrations\201804211734148_changesinmodels.Designer.cs">
+      <DependentUpon>201804211734148_changesinmodels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -255,7 +259,7 @@
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -376,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804190702266_Changecolumns.resx">
       <DependentUpon>201804190702266_Changecolumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804211734148_changesinmodels.resx">
+      <DependentUpon>201804211734148_changesinmodels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

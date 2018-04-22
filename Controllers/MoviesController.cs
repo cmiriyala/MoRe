@@ -66,7 +66,9 @@ namespace MoRe.Controllers
             return View();
         }
         public ActionResult NewMovie()
+
         {
+            ViewBag.TitleMovie = "New Movie";
             var generlist = _context.Genres.ToList();
             var ViewModel = new CustomerFormViewModel
             {
@@ -78,20 +80,48 @@ namespace MoRe.Controllers
         [HttpPost]
         public ActionResult Save(Movie movie)
         {
+            if (ModelState.IsValid)
+            {
+                var ViewModel = new CustomerFormViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+                return View("NewMovie", ViewModel);
+            }
             if (movie.Id == 0)
             {
+                movie.AddedDate = DateTime.Now;
                 _context.Movies.Add(movie);
 
             }
             else
             {
+                var movieInDB = _context.Movies.Single(m => m.Id == movie.Id);
+                movieInDB.Name = movie.Name;
+                movieInDB.GenresId = movie.GenresId;
+                movieInDB.NumberinStock = movie.NumberinStock;
+                movieInDB.ReleaseDate = movie.ReleaseDate;
+
             }
             _context.SaveChanges();
             return RedirectToAction("Index","Movies");
         }
         public ActionResult Edit(int id)
         {
-            return Content("id="+id);
+            ViewBag.TitleMovie = "Edit Movie";
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            if( movie== null)
+            {
+                return HttpNotFound();
+            }
+
+            var ViewModel = new CustomerFormViewModel
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+            return View("NewMovie", ViewModel);
         }
       /* public ActionResult Index(int? pageIndex, string sortBy)
         {

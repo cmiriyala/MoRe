@@ -131,3 +131,4 @@ c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.AddBirthdateCustomer.resou
 c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.AddMovietableandreferanceGenerTable.resources
 c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.AddGenestodatabase.resources
 c:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.Changecolumns.resources
+C:\DoTNeTpRoJeCtS\MoRe\MoRe\obj\Debug\MoRe.Migrations.changesinmodels.resources

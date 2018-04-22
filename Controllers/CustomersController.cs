@@ -53,6 +53,7 @@ namespace MoRe.Controllers
         }
         public ActionResult New()
         {
+            ViewBag.Titlecust = "New Customer";
             var membershipTypes = _context.MembershipTypes.ToList();    
             var viewModelcustomerMembershiptype = new CustomerFormViewModel 
             {
@@ -65,6 +66,16 @@ namespace MoRe.Controllers
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
+            if (ModelState.IsValid)
+            {
+                var ViewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+                return View("New",ViewModel);
+            }
+
             if (customer.Id == 0)
             {
                 _context.Customers.Add(customer);
@@ -75,7 +86,7 @@ namespace MoRe.Controllers
                 var customerInDb = _context.Customers.SingleOrDefault(C => C.Id == customer.Id);
                 customerInDb.Name = customer.Name;
                 customerInDb.Birthdate = customer.Birthdate;
-                customerInDb.MembershipType = customer.MembershipType;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
                 customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
 
             }
@@ -84,6 +95,7 @@ namespace MoRe.Controllers
         }
         public ActionResult Edit(int id)
         {
+            ViewBag.Titlecust = "Edit Customer";
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             if(customer == null)
             {
